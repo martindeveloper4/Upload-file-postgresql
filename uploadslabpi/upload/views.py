@@ -4,10 +4,10 @@ import psycopg2
 
 # Create your views here.
 con = psycopg2.connect(
-    host="bpi-rpa-latam.cdw1gc4aj2db.us-east-1.rds.amazonaws.com",
-    database="dashboard",
-    user="postgres",
-    password="IT0kYg53L56Mk3HYTZ4m",
+    host="",
+    database="",
+    user="",
+    password="",
     port="5432"
 )
 
@@ -23,6 +23,7 @@ def upload(request):
         if request.POST:
             file = request.FILES['file']
             name_file = str(file)
+            # ROOT URL - Ruta raiz donde se encuentra el archivo o los archivos.
             df = pd.read_csv(r'ROOT_URL'+ name_file, encoding='latin-1',sep=';')
             df = df.fillna('')
             df = df.to_numpy().tolist()
