@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File BPI</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'upload/css/bootstrap.min.css' %}">
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Actualizar Dashboard BPI</h1>
+            <hr>
+            <p class="lead alert alert-info">Subir archivo con extensión <b>.CSV</b> para actualizar el dashboard BPI.</p>
+            <form action='{% url "upload" %}' method="POST"  enctype="multipart/form-data" >
+                {% csrf_token %}
+                <div class="form-group md-12">
+                    <input type="file" class="form-control-file border" name="file">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Cargar archivo</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="{% static 'upload/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
