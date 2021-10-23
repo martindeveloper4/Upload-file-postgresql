@@ -23,7 +23,7 @@ def upload(request):
         if request.POST:
             file = request.FILES['file']
             name_file = str(file)
-            df = pd.read_csv(r'C:/Users/Martin/Documents/DATACSV/'+ name_file, encoding='latin-1',sep=';')
+            df = pd.read_csv(r'ROOT_URL'+ name_file, encoding='latin-1',sep=';')
             df = df.fillna('')
             df = df.to_numpy().tolist()
             lista = list (df)
