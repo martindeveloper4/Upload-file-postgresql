@@ -32,7 +32,7 @@ def upload(request):
             tuplaa = tuple(lista)
 
             cur = con.cursor()
-
+            print(cur)
             cur.executemany("INSERT INTO dashboard_powerbi (id,created_at,name_one,name_platform,text_in,text_out,intent_name,session_id,client_phone,phone,name_two,user_name,name_treee,last_name,metadata) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",tuplaa)
             if cur.rowcount == 190:
                 con.commit()
